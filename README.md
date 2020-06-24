@@ -8,6 +8,7 @@
 * [intsallation](#Installation)
 * [usage](#Usage)
 * [Tests](#Tests)
+* [Deploy](#Deploy)
 * [User Story](#UserStory)
 * [Github](#Github)
 
@@ -20,6 +21,10 @@ click new workout then select between cardio or resistance this allows the user 
 
 ## Tests
 try these test commands: try adding some workouts then refreshing the home page! 
+
+## Deploy
+deployed link for heroku
+https://lit-ridge-71283.herokuapp.com/?id=5ef39030ad0c620017bc3bd9
 
 ## UserStory
 AS A fitness advocate
