@@ -66,16 +66,26 @@ app.post('/api/workouts', (req,res) => {
     res.json(err);
   })
 });
-app.put("/api/workouts/:id", ({ params, body }, res) => {
-  db.Workout.findOneAndUpdate({ _id: params.id},{$push: {excercises:body }},{ upsert: true, useFindandModify:false})
-  .then(updatedWorkout => {
-    res.json(updatedWorkout);
+app.put("/api/workouts/:id", (req,res) => {
+    db.Workout.updateOne( {_id: req.params.id }, {$push: {exercises:  [
+      {
+      "type" : req.body.type,
+      "name" : req.body.name,
+      "duration" : req.body.duration,
+      "distance" : req.body.distance,
+      "weight" : req.body.weight,
+      "reps" : req.body.reps,
+      "sets" : req.body.sets
+      }
+    ] 
+  }}).then(dbUpdate => {
+    res.json(dbUpdate);
   })
-  .catch(err =>{
+  .catch(err => {
     res.json(err);
-  })
-                              
-});
+  });
+  
+  });
 // html routes
 // ==============================
 app.get("/exercise",(req,res)=>{
