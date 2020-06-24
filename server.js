@@ -66,7 +66,7 @@ app.post('/api/workouts', (req,res) => {
     res.json(err);
   })
 });
-app.put("/api/workouts/:workout", ({ params, body }, res) => {
+app.put("/api/workouts/:id", ({ params, body }, res) => {
   db.Workout.findOneAndUpdate({ _id: params.id},{$push: {excercises:body }},{ upsert: true, useFindandModify:false})
   .then(updatedWorkout => {
     res.json(updatedWorkout);
